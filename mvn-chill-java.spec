@@ -4,17 +4,24 @@
 #
 Name     : mvn-chill-java
 Version  : 0.9.3
-Release  : 1
-URL      : https://repo1.maven.org/maven2/com/twitter/chill-java/0.9.3/chill-java-0.9.3.jar
-Source0  : https://repo1.maven.org/maven2/com/twitter/chill-java/0.9.3/chill-java-0.9.3.jar
-Source1  : https://repo1.maven.org/maven2/com/twitter/chill-java/0.9.3/chill-java-0.9.3.pom
+Release  : 2
+URL      : https://github.com/twitter/chill/archive/v0.9.3.tar.gz
+Source0  : https://github.com/twitter/chill/archive/v0.9.3.tar.gz
+Source1  : https://repo.maven.apache.org/maven2/com/twitter/chill_2.12/0.9.3/chill_2.12-0.9.3.jar
+Source2  : https://repo.maven.apache.org/maven2/com/twitter/chill_2.12/0.9.3/chill_2.12-0.9.3.pom
+Source3  : https://repo1.maven.org/maven2/com/twitter/chill-java/0.9.3/chill-java-0.9.3.jar
+Source4  : https://repo1.maven.org/maven2/com/twitter/chill-java/0.9.3/chill-java-0.9.3.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-chill-java-data = %{version}-%{release}
 
 %description
-No detailed description available
+## Chill
+[![Build Status](https://secure.travis-ci.org/twitter/chill.png)](http://travis-ci.org/twitter/chill)
+[![Codecov branch](https://img.shields.io/codecov/c/github/twitter/chill/develop.svg?maxAge=3600)](https://codecov.io/github/twitter/chill)
+[![Latest version](https://index.scala-lang.org/twitter/chill/chill/latest.svg?color=orange)](https://index.scala-lang.org/twitter/chill/chill)
+[![Chat](https://badges.gitter.im/twitter/chill.svg)](https://gitter.im/twitter/chill?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 %package data
 Summary: data components for the mvn-chill-java package.
@@ -29,11 +36,17 @@ data components for the mvn-chill-java package.
 %build
 
 %install
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3
-cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill_2.12/0.9.3
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill_2.12/0.9.3/chill_2.12-0.9.3.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill_2.12/0.9.3
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill_2.12/0.9.3/chill_2.12-0.9.3.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3/chill-java-0.9.3.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3/chill-java-0.9.3.pom
 
 
 %files
@@ -43,3 +56,5 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/com/twitter/chill-java/
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3/chill-java-0.9.3.jar
 /usr/share/java/.m2/repository/com/twitter/chill-java/0.9.3/chill-java-0.9.3.pom
+/usr/share/java/.m2/repository/com/twitter/chill_2.12/0.9.3/chill_2.12-0.9.3.jar
+/usr/share/java/.m2/repository/com/twitter/chill_2.12/0.9.3/chill_2.12-0.9.3.pom
